@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2487.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">1)==&gt;</p>
+<p class="p1">function swapTheme() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>var appDiv = document.getElementById('app');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>var swapBtn = document.getElementById('swap');</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (appDiv.classList.contains('day')) {</p>
+<p class="p2"><span class="Apple-converted-space">       </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>appDiv.classList.remove('day');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>appDiv.classList.add('night');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>swapBtn.classList.remove('button_day');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>swapBtn.classList.add('button_night');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>} else {</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>appDiv.classList.remove('night');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>appDiv.classList.add('day');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>swapBtn.classList.remove('button_night');</p>
+<p class="p1"><span class="Apple-converted-space">        </span>swapBtn.classList.add('button_day');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">2)==&gt;</p>
+<p class="p1">function createDiv(width, height, text) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>var newDiv = document.createElement('div');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>newDiv.style.width = width + 'px';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>newDiv.style.height = height + 'px';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>newDiv.textContent = text;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('container').appendChild(newDiv);</p>
+<p class="p1">}</p>
+<p class="p1">Window.createDiv = createDiv;</p>
+<p class="p2"><br></p>
+<p class="p1">3)==&gt;</p>
+<p class="p1">function toggleVisibility() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>var paragraph = document.getElementById('useless-paragraph');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (paragraph.style.display === 'none' || paragraph.style.display === '') {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>paragraph.style.display = 'block';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>paragraph.style.display = 'none';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">4)==&gt;</p>
+<p class="p1">document.addEventListener('DOMContentLoaded', function () {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('colorchange').addEventListener('click', function () {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>var color = document.getElementById('colorbox').value;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('text-container').style.color = color;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p1"><span class="Apple-converted-space">   </span>document.getElementById('fontsize').addEventListener('input', function () {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>var fontSize = this.value;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('text-container').style.fontSize = fontSize + 'px';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>var styleButtons = document.querySelectorAll('.stylebt');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>styleButtons.forEach(function (button) {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>button.addEventListener('click', function () {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>var style = this.id;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>document.getElementById('text-container').style[style] = this.classList.toggle('active') ? style : 'initial';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('list').addEventListener('change', function () {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>var fontFamily = this.value;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('text-container').style.fontFamily = fontFamily;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('getstyle').addEventListener('click', function () {</p>
+<p class="p1"><span class="Apple-converted-space">        </span>var cssProps = '';</p>
+<p class="p1"><span class="Apple-converted-space">        </span>var textStyles = document.getElementById('text-container').style;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>for (var i = 0; i &lt; textStyles.length; i++) {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>var prop = textStyles[i];</p>
+<p class="p1"><span class="Apple-converted-space">            </span>var value = textStyles.getPropertyValue(prop);</p>
+<p class="p1"><span class="Apple-converted-space">            </span>if (value) {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>cssProps += prop + ': ' + value + '; ';</p>
+<p class="p1"><span class="Apple-converted-space">            </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById('css-props').textContent = cssProps;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>});</p>
+<p class="p1">});</p>
+</body>
+</html>
